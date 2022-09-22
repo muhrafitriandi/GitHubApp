@@ -23,9 +23,19 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", BASE_URL)
+            buildConfigField("String", "HOSTNAME", HOSTNAME)
+            buildConfigField("String", "SHA1", SHA1)
+            buildConfigField("String", "SHA2", SHA2)
+            buildConfigField("String", "SHA3", SHA3)
+            buildConfigField("String", "SHA4", SHA4)
         }
         debug {
             buildConfigField("String", "BASE_URL", BASE_URL)
+            buildConfigField("String", "HOSTNAME", HOSTNAME)
+            buildConfigField("String", "SHA1", SHA1)
+            buildConfigField("String", "SHA2", SHA2)
+            buildConfigField("String", "SHA3", SHA3)
+            buildConfigField("String", "SHA4", SHA4)
         }
     }
 

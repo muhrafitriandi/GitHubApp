@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.detail.DetailFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryVariant">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/mainToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvUsername"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/shimmer_background"
+                        android:textColor="@color/shimmer_text_color"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/nunito"
+                        android:maxLines="1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_collapseMode="pin"
+                        tools:text="Username" />
+
+                    <ImageView
+                        android:id="@+id/ivShare"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@string/text_back"
+                        app:layout_collapseMode="pin" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@color/shimmer_background"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mainToolbar" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvRepository"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/tvFollowers"
+                    app:layout_constraintStart_toEndOf="@id/ivUser"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalRepository" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTotalRepository"
+                    android:layout_width="48dp"
+                    android:layout_height="24dp"
+                    android:background="@color/shimmer_background"
+                    android:textColor="@color/shimmer_text_color"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/tvRepository"
+                    app:layout_constraintStart_toStartOf="@id/tvRepository"
+                    app:layout_constraintTop_toTopOf="@id/ivUser"
+                    tools:text="0" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvFollowers"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/tvFollowing"
+                    app:layout_constraintStart_toEndOf="@id/tvRepository"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowers" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTotalFollowers"
+                    android:layout_width="48dp"
+                    android:layout_height="24dp"
+                    android:fontFamily="@font/nunito"
+                    android:background="@color/shimmer_background"
+                    android:textColor="@color/shimmer_text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/tvFollowers"
+                    app:layout_constraintStart_toStartOf="@id/tvFollowers"
+                    app:layout_constraintTop_toTopOf="@id/tvTotalRepository"
+                    tools:text="0" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvFollowing"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvFollowers"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowing" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTotalFollowing"
+                    android:layout_width="48dp"
+                    android:layout_height="24dp"
+                    android:fontFamily="@font/nunito"
+                    android:background="@color/shimmer_background"
+                    android:textColor="@color/shimmer_text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/tvFollowing"
+                    app:layout_constraintStart_toStartOf="@id/tvFollowing"
+                    app:layout_constraintTop_toTopOf="@id/tvTotalFollowers"
+                    tools:text="0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -106,6 +106,7 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
                 }
                 is Resource.Loading -> {
                     true.showLoading()
+                    false.showEmpty()
                 }
                 is Resource.Success -> {
                     false.showLoading()

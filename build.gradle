@@ -47,6 +47,9 @@ buildscript {
 
         // Shimmer
         shimmer_version = "0.5.0"
+
+        // Lottie
+        lottie_version = "5.0.3"
     }
 
     dependencies {

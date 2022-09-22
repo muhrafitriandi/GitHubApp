@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <action
+        android:id="@+id/toHomeFragment"
+        app:destination="@id/homeFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.yandey.githubapp.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.yandey.favorite.ui.favorite.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yandey.githubapp.ui.settings.SettingsFragment"
+        android:label="Settings" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.yandey.githubapp.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+</navigation>

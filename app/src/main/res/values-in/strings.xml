@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">GitHubApp</string>
+    <string name="title_favorite">Favorit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Beranda</string>
+    <string name="favorite">Favorit</string>
+    <string name="settings">Pengaturan</string>
+
+    <string name="text_language">Bahasa</string>
+    <string name="text_change_language">Ubah Bahasa</string>
+    <string name="text_common">Umum</string>
+    <string name="text_display">Tampilan</string>
+    <string name="text_logo">Logo</string>
+    <string name="text_search">Cari nama pengguna…</string>
+    <string name="text_showing_results">Menampilkan %d hasil</string>
+    <string name="text_what_are_you_looking_for">Apa yang sedang anda cari?</string>
+    <string name="text_user_not_found">Pengguna tidak ditemukan!</string>
+    <string name="text_back">Kembali</string>
+    <string name="text_repository">Repository</string>
+    <string name="text_followers">Pengikut</string>
+    <string name="text_following">Mengikuti</string>
+    <string name="text_open_on_github">Buka Di GitHub</string>
+    <string name="text_github_connection">Koneksi GitHub</string>
+    <string name="text_share_via">Bagikan melalui</string>
+    <string name="text_hello_there">Halo yang disana! Saya menggunakan GitHub. Ikuti saya di https://github.com/%s</string>
+    <string name="text_no_followers">%s\ntidak memiliki pengikut</string>
+    <string name="text_no_following">%s\ntidak mengikuti siapapun</string>
+    <string name="text_no_favorite"><string name="you_don_t_have_a_favorite_user">Kamu tidak memiliki pengguna favorit</string></string>
+    <string name="text_success_added">Berhasil ditambahkan ke favorit!</string>
+    <string name="text_deleted_success">Favorit berhasil dihapus!</string>
+
+    <string name="github_url">https://github.com/%s</string>
+
+    <string name="image_search_illustration">Gambar Ilustrasi Pencarian</string>
+    <string name="image_no_data_illustration">Gambar Ilustrasi Tanpa Data</string>
+
+    <string name="pref_dark_auto" translatable="false">auto</string>
+    <string name="pref_dark_on" translatable="false">on</string>
+    <string name="pref_dark_off" translatable="false">off</string>
+    <string name="pref_key_dark" translatable="false">key_dark_mode</string>
+    <string name="pref_dark_title">Tema</string>
+
+    <string name="dark_mode_auto">Otomatis</string>
+    <string name="dark_mode_on">Mode Gelap</string>
+    <string name="dark_mode_off">Mode Terang</string>
+
+    <string-array name="dark_mode">
+        <item>@string/dark_mode_auto</item>
+        <item>@string/dark_mode_on</item>
+        <item>@string/dark_mode_off</item>
+    </string-array>
+
+    <string-array name="dark_mode_value">
+        <item>@string/pref_dark_auto</item>
+        <item>@string/pref_dark_on</item>
+        <item>@string/pref_dark_off</item>
+    </string-array>
+</resources>

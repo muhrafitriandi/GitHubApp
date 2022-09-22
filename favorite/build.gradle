@@ -24,7 +24,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    namespace 'com.yandey.favorite'
+    namespace 'com.yandey.favorite'
 }
 
 dependencies {

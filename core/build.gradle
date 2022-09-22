@@ -11,6 +11,7 @@ android {
     lintOptions {
         quiet true
         abortOnError false
+        checkReleaseBuilds false
         ignoreWarnings true
     }
     compileSdk 33

@@ -50,6 +50,10 @@ buildscript {
 
         // Lottie
         lottie_version = "5.0.3"
+
+        // SQL
+        sqlchipper_version = "4.4.0"
+        sqlite_version = "2.2.0"
     }
 
     dependencies {

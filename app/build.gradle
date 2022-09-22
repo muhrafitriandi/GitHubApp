@@ -41,7 +41,7 @@ android {
     }
 
     dynamicFeatures = [':favorite']
-    namespace 'com.yandey.githubapp'
+//    namespace 'com.yandey.githubapp'
 }
 
 dependencies {

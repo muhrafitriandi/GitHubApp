@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.yandey.core.data.Resource
 import com.yandey.core.domain.model.User
@@ -29,6 +30,8 @@ class DetailFragment : Fragment() {
     private val viewModel: DetailViewModel by viewModels()
 
     private var isFavorite: Boolean = false
+
+    private var mediator: TabLayoutMediator? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +58,12 @@ class DetailFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        mediator?.detach()
+        mediator = null
+        binding.viewPager.adapter = null
+        Glide.get(requireActivity()).clearMemory()
         _binding = null
+        super.onDestroyView()
     }
 
     private fun observeUserDetail(username: String) {
@@ -133,9 +140,10 @@ class DetailFragment : Fragment() {
     private fun followsPager() {
         val followsPagerAdapter = FollowsPagerAdapter(requireActivity())
         binding.viewPager.adapter = followsPagerAdapter
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+        mediator = TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES_FOLLOWS[position])
-        }.attach()
+        }
+        mediator!!.attach()
     }
 
     private fun favoriteStatus() = if (!isFavorite) {

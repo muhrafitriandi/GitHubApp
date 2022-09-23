@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.yandey.core.data.Resource
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
@@ -24,7 +25,7 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    private lateinit var userAdapter: UserAdapter
+    private var userAdapter: UserAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,8 +44,10 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        userAdapter = null
+        Glide.get(requireActivity()).clearMemory()
         _binding = null
+        super.onDestroyView()
     }
 
     override fun onItemClicked(user: User) {
@@ -112,7 +115,7 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
                     false.showLoading()
                     false.showDefault()
                     false.showEmpty()
-                    userAdapter.submitList(response.data)
+                    userAdapter?.submitList(response.data)
                 }
             }
             binding.tvResultCount.text =

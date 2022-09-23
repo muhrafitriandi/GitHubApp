@@ -4,10 +4,13 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
 import com.yandey.core.utils.Constants
@@ -30,7 +33,7 @@ class FavoriteFragment : Fragment(), UserAdapter.ItemClickListener {
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var userAdapter: UserAdapter
+    private var userAdapter: UserAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +64,10 @@ class FavoriteFragment : Fragment(), UserAdapter.ItemClickListener {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        userAdapter = null
+        Glide.get(requireActivity()).clearMemory()
         _binding = null
+        super.onDestroyView()
     }
 
     override fun onItemClicked(user: User) {
@@ -80,13 +85,17 @@ class FavoriteFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private fun observeFavorite() {
         viewModel.favoriteUsers.observe(viewLifecycleOwner) { listUser ->
-            userAdapter.submitList(listUser)
+            userAdapter?.submitList(listUser)
             if (listUser.isNotEmpty()) {
-                binding.tvNoFavorite.visibility = View.INVISIBLE
-                binding.ivNoFavorite.visibility = View.INVISIBLE
+                binding.apply {
+                    tvNoFavorite.visibility = INVISIBLE
+                    ivNoFavorite.visibility = INVISIBLE
+                }
             } else {
-                binding.tvNoFavorite.visibility = View.VISIBLE
-                binding.ivNoFavorite.visibility = View.VISIBLE
+                binding.apply {
+                    tvNoFavorite.visibility = VISIBLE
+                    ivNoFavorite.visibility = VISIBLE
+                }
             }
         }
     }

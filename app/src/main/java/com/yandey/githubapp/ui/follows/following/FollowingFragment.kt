@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.yandey.core.data.Resource
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
@@ -24,7 +25,7 @@ class FollowingFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private val viewModel: FollowingViewModel by viewModels()
 
-    private lateinit var userAdapter: UserAdapter
+    private var userAdapter: UserAdapter? = null
 
     private var username: String? = null
 
@@ -48,8 +49,11 @@ class FollowingFragment : Fragment(), UserAdapter.ItemClickListener {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        userAdapter = null
+        username = null
+        Glide.get(requireActivity()).clearMemory()
         _binding = null
+        super.onDestroyView()
     }
 
     override fun onItemClicked(user: User) {
@@ -77,7 +81,7 @@ class FollowingFragment : Fragment(), UserAdapter.ItemClickListener {
                 is Resource.Success -> {
                     false.showLoading()
                     false.showEmpty()
-                    userAdapter.submitList(response.data)
+                    userAdapter?.submitList(response.data)
                 }
             }
         }

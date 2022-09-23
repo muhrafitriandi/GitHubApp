@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
 import com.yandey.core.R
 import java.math.RoundingMode
@@ -17,6 +18,8 @@ fun ImageView.loadImage(context: Context, url: String?) {
         .load(url)
         .placeholder(R.drawable.image_placeholder)
         .error(R.drawable.image_error)
+        .skipMemoryCache(true)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(this)
 }
 

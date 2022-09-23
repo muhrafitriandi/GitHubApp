@@ -2,12 +2,11 @@ package com.yandey.githubapp.ui.detail
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
+import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.yandey.core.data.Resource
@@ -17,57 +16,41 @@ import com.yandey.core.utils.loadImage
 import com.yandey.core.utils.showSnackBar
 import com.yandey.core.utils.toShortNumber
 import com.yandey.githubapp.R
-import com.yandey.githubapp.databinding.FragmentDetailBinding
+import com.yandey.githubapp.databinding.ActivityDetailBinding
 import com.yandey.githubapp.ui.follows.FollowsPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment() {
+class DetailActivity : AppCompatActivity() {
 
-    private var _binding: FragmentDetailBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: ActivityDetailBinding
 
     private val viewModel: DetailViewModel by viewModels()
 
     private var isFavorite: Boolean = false
 
-    private var mediator: TabLayoutMediator? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
+        setContentView(binding.root)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val username = requireActivity().intent.getStringExtra(EXTRA_USER)
+        val username = intent.getStringExtra(EXTRA_USER)
         viewModel.setDetailUser(username.toString())
         observeUserDetail(username.toString())
         openGithub(getString(R.string.github_url, username.toString()))
         shareGithub(getString(R.string.text_hello_there, username.toString()))
 
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
+
         followsPager()
         onClickFavorite()
-
-        onBackListener()
-    }
-
-    override fun onDestroyView() {
-        mediator?.detach()
-        mediator = null
-        binding.viewPager.adapter = null
-        Glide.get(requireActivity()).clearMemory()
-        _binding = null
-        super.onDestroyView()
     }
 
     private fun observeUserDetail(username: String) {
-        viewModel.detailUser.observe(viewLifecycleOwner) { response ->
+        viewModel.detailUser.observe(this) { response ->
             when (response) {
                 is Resource.Error -> {
                     false.showLoading()
@@ -77,7 +60,7 @@ class DetailFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     false.showLoading()
-                    viewModel.getFavoriteStateUser(username).observe(viewLifecycleOwner) {
+                    viewModel.getFavoriteStateUser(username).observe(this) {
                         isFavorite = it.isFavorite == true
                         setDrawableFavorite(isFavorite)
                     }
@@ -87,11 +70,16 @@ class DetailFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        Glide.get(this).clearMemory()
+        super.onDestroy()
+    }
+
     private fun Boolean.showLoading() {
         if (this) {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBar.visibility = VISIBLE
         } else {
-            binding.progressBar.visibility = View.INVISIBLE
+            binding.progressBar.visibility = INVISIBLE
         }
     }
 
@@ -116,16 +104,10 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun onBackListener() {
-        binding.ivBack.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
-    }
-
     private fun setDataUserDetail(user: Resource<User>) {
         binding.apply {
             tvUsername.text = user.data?.login ?: "-"
-            ivUser.loadImage(requireContext(), user.data?.avatar_url)
+            ivUser.loadImage(this@DetailActivity, user.data?.avatar_url)
             tvTotalRepository.text = user.data?.public_repos.toString().toShortNumber()
             tvTotalFollowers.text = user.data?.followers.toString().toShortNumber()
             tvTotalFollowing.text = user.data?.following.toString().toShortNumber()
@@ -138,32 +120,35 @@ class DetailFragment : Fragment() {
     }
 
     private fun followsPager() {
-        val followsPagerAdapter = FollowsPagerAdapter(requireActivity())
+        val followsPagerAdapter = FollowsPagerAdapter(this)
         binding.viewPager.adapter = followsPagerAdapter
-        mediator = TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = resources.getString(TAB_TITLES_FOLLOWS[position])
+        binding.tabs.let {
+            binding.viewPager.let { it1 ->
+                TabLayoutMediator(it, it1) { tab, position ->
+                    tab.text = resources.getString(TAB_TITLES_FOLLOWS[position])
+                }.attach()
+            }
         }
-        mediator!!.attach()
     }
 
     private fun favoriteStatus() = if (!isFavorite) {
-        viewModel.detailUser.observe(viewLifecycleOwner) { response ->
+        viewModel.detailUser.observe(this) { response ->
             response.data?.let {
                 it.isFavorite = !isFavorite
                 viewModel.insertUser(it)
                 isFavorite = !isFavorite
             }
         }
-        showSnackBar(view, getString(R.string.text_success_added))
+        showSnackBar(binding.root, getString(R.string.text_success_added))
     } else {
-        viewModel.detailUser.observe(viewLifecycleOwner) { response ->
+        viewModel.detailUser.observe(this) { response ->
             response.data?.let {
                 it.isFavorite = !isFavorite
                 viewModel.deleteUser(it)
                 isFavorite = !isFavorite
             }
         }
-        showSnackBar(view, getString(R.string.text_deleted_success))
+        showSnackBar(binding.root, getString(R.string.text_deleted_success))
     }
 
     private fun setDrawableFavorite(status: Boolean) = if (status) {

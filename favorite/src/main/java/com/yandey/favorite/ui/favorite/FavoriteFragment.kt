@@ -1,5 +1,6 @@
 package com.yandey.favorite.ui.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,17 +9,15 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
 import com.yandey.core.utils.Constants
 import com.yandey.favorite.ViewModelFactory
 import com.yandey.favorite.databinding.FragmentFavoriteBinding
 import com.yandey.favorite.di.DaggerFavoriteComponent
-import com.yandey.githubapp.R
 import com.yandey.githubapp.di.FavoriteModule
+import com.yandey.githubapp.ui.detail.DetailActivity
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
@@ -65,21 +64,16 @@ class FavoriteFragment : Fragment(), UserAdapter.ItemClickListener {
 
     override fun onDestroyView() {
         userAdapter = null
-        Glide.get(requireActivity()).clearMemory()
         _binding = null
         super.onDestroyView()
     }
 
     override fun onItemClicked(user: User) {
-        val bundle = Bundle().apply {
-            requireActivity().intent.putExtra(
+        startActivity(
+            Intent(requireContext(), DetailActivity::class.java).putExtra(
                 Constants.EXTRA_USER,
                 user.login
             )
-        }
-        findNavController().navigate(
-            R.id.action_favoriteFragment_to_detailFragment,
-            bundle
         )
     }
 
@@ -102,7 +96,7 @@ class FavoriteFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private fun initRecyclerView() {
         binding.rvUser.apply {
-            userAdapter = UserAdapter(requireContext(), this@FavoriteFragment)
+            userAdapter = UserAdapter(requireActivity(), this@FavoriteFragment)
             adapter = userAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }

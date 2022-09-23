@@ -1,20 +1,20 @@
 package com.yandey.githubapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.view.View.*
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.yandey.core.data.Resource
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
 import com.yandey.core.utils.Constants.EXTRA_USER
 import com.yandey.githubapp.R
 import com.yandey.githubapp.databinding.FragmentHomeBinding
+import com.yandey.githubapp.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,21 +45,16 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
 
     override fun onDestroyView() {
         userAdapter = null
-        Glide.get(requireActivity()).clearMemory()
-        _binding = null
         super.onDestroyView()
+        _binding = null
     }
 
     override fun onItemClicked(user: User) {
-        val bundle = Bundle().apply {
-            requireActivity().intent.putExtra(
+        startActivity(
+            Intent(requireContext(), DetailActivity::class.java).putExtra(
                 EXTRA_USER,
                 user.login
             )
-        }
-        findNavController().navigate(
-            R.id.action_homeFragment_to_detailFragment,
-            bundle
         )
     }
 
@@ -70,7 +65,7 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
             }
 
             searchView.setOnCloseListener {
-                findNavController().navigate(R.id.toHomeFragment)
+                ivGithub.visibility = VISIBLE
                 false
             }
 
@@ -93,7 +88,7 @@ class HomeFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private fun initRecyclerView() {
         binding.rvUser.apply {
-            userAdapter = UserAdapter(requireContext(), this@HomeFragment)
+            userAdapter = UserAdapter(requireActivity(), this@HomeFragment)
             adapter = userAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }

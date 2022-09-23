@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.yandey.core.data.Resource
 import com.yandey.core.domain.model.User
 import com.yandey.core.ui.UserAdapter
@@ -51,7 +50,6 @@ class FollowersFragment : Fragment(), UserAdapter.ItemClickListener {
     override fun onDestroyView() {
         userAdapter = null
         username = null
-        Glide.get(requireActivity()).clearMemory()
         _binding = null
         super.onDestroyView()
     }
@@ -62,7 +60,7 @@ class FollowersFragment : Fragment(), UserAdapter.ItemClickListener {
 
     private fun initRecyclerView() {
         binding.rvUser.apply {
-            userAdapter = UserAdapter(requireContext(), this@FollowersFragment)
+            userAdapter = UserAdapter(requireActivity(), this@FollowersFragment)
             adapter = userAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }

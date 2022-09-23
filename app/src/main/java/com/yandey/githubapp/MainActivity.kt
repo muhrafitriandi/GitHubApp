@@ -31,12 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navController = findNavController(R.id.navHostFragment)
-        navController.addOnDestinationChangedListener { _, navDestination, _ ->
-            when (navDestination.id) {
-                R.id.detailFragment -> binding.bottomBar.visibility = GONE
-                else -> binding.bottomBar.visibility = VISIBLE
-            }
-        }
         setupActionBarWithNavController(navController)
     }
 

@@ -28,7 +28,8 @@
                     app:layout_collapseMode="pin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="DuplicateIncludedIds">
 
                     <ImageView
                         android:id="@+id/ivBack"
@@ -51,6 +52,7 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_collapseMode="pin"
+                        tools:ignore="DuplicateIncludedIds"
                         tools:text="Username" />
 
                     <ImageView
@@ -62,7 +64,8 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/text_back"
                         android:src="@drawable/ic_share"
-                        app:layout_collapseMode="pin" />
+                        app:layout_collapseMode="pin"
+                        tools:ignore="DuplicateIncludedIds" />
 
                 </androidx.appcompat.widget.Toolbar>
 
@@ -74,6 +77,7 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+                    tools:ignore="DuplicateIncludedIds"
                     tools:src="@tools:sample/avatars" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -88,7 +92,8 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toStartOf="@id/tvFollowers"
                     app:layout_constraintStart_toEndOf="@id/ivUser"
-                    app:layout_constraintTop_toBottomOf="@id/tvTotalRepository" />
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalRepository"
+                    tools:ignore="DuplicateIncludedIds" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvTotalRepository"
@@ -102,6 +107,7 @@
                     app:layout_constraintEnd_toEndOf="@id/tvRepository"
                     app:layout_constraintStart_toStartOf="@id/tvRepository"
                     app:layout_constraintTop_toTopOf="@id/ivUser"
+                    tools:ignore="DuplicateIncludedIds"
                     tools:text="0" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -116,7 +122,8 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toStartOf="@id/tvFollowing"
                     app:layout_constraintStart_toEndOf="@id/tvRepository"
-                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowers" />
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowers"
+                    tools:ignore="DuplicateIncludedIds" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvTotalFollowers"
@@ -129,6 +136,7 @@
                     app:layout_constraintEnd_toEndOf="@id/tvFollowers"
                     app:layout_constraintStart_toStartOf="@id/tvFollowers"
                     app:layout_constraintTop_toTopOf="@id/tvTotalRepository"
+                    tools:ignore="DuplicateIncludedIds"
                     tools:text="0" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -144,7 +152,8 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvFollowers"
-                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowing" />
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalFollowing"
+                    tools:ignore="DuplicateIncludedIds" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvTotalFollowing"
@@ -157,6 +166,7 @@
                     app:layout_constraintEnd_toEndOf="@id/tvFollowing"
                     app:layout_constraintStart_toStartOf="@id/tvFollowing"
                     app:layout_constraintTop_toTopOf="@id/tvTotalFollowers"
+                    tools:ignore="DuplicateIncludedIds"
                     tools:text="0" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -282,7 +292,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:shimmer_auto_start="true">
 
-                    <include layout="@layout/fragment_detail_placeholder" />
+                    <include
+                        layout="@layout/fragment_detail_placeholder"
+                        tools:ignore="DuplicateIncludedIds" />
 
                 </com.facebook.shimmer.ShimmerFrameLayout>
 

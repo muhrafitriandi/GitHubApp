@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">GitHubApp</string>
     <string name="title_favorite">Favorite</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -12,7 +12,7 @@
     <string name="text_display">Display</string>
     <string name="text_logo">Logo</string>
     <string name="text_search">Search username…</string>
-    <string name="text_showing_results">Showing %d results</string>
+    <string name="text_showing_results" tools:ignore="PluralsCandidate">Showing %d results</string>
     <string name="text_what_are_you_looking_for">What are you looking for?</string>
     <string name="text_user_not_found">User not found!</string>
     <string name="text_back">Back</string>

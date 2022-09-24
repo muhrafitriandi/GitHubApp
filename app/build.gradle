@@ -8,11 +8,6 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
-    lintOptions {
-        quiet true
-        abortOnError false
-        ignoreWarnings true
-    }
     compileSdk 33
 
     defaultConfig {

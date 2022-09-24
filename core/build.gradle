@@ -8,6 +8,9 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
     compileSdk 33
 
     defaultConfig {

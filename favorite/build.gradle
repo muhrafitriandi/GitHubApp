@@ -8,7 +8,7 @@ apply from: '../shared_dependencies.gradle'
 
 android {
     lint {
-        baseline = file("lint-baseline.xml")
+        abortOnError false
     }
     compileSdk 33
 

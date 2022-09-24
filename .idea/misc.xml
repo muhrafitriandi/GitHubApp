@@ -7,6 +7,204 @@
       </map>
     </option>
   </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.yandey.core.utils.Constants EXTRA_USER" />
+      <entry_point TYPE="field" FQNAME="com.yandey.core.utils.DarkMode AUTO" />
+      <entry_point TYPE="field" FQNAME="com.yandey.core.utils.DarkMode OFF" />
+      <entry_point TYPE="field" FQNAME="com.yandey.core.utils.DarkMode ON" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.detail.DetailActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.MainActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.detail.DetailViewModel detailUser$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.core.ui.UserAdapter DIFF_CALLBACK" />
+      <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/core/src/main/java/com/yandey/core/utils/Extensions.kt" />
+      <entry_point TYPE="field" FQNAME="com.yandey.favorite.ui.favorite.FavoriteFragment factory" />
+      <entry_point TYPE="field" FQNAME="com.yandey.favorite.ui.favorite.FavoriteViewModel favoriteUsers" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.followers.FollowersViewModel followers$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.following.FollowingViewModel following$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.detail.DetailActivity isFavorite" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.data.UserRepositoryImpl$-1 kotlinx.coroutines.flow.Flow&lt;java.util.List&lt;com.yandey.core.domain.model.User&gt;&gt; loadFromNetwork(java.util.List&lt;com.yandey.core.data.source.remote.response.UserResponse&gt; data)" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.utils.ExtensionsKt void loadImage(android.widget.ImageView $this$loadImage, android.content.Context context, java.lang.String url)" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.MainActivity navController" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.utils.ExtensionsKt void showSnackBar(android.view.View view, java.lang.String message)" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.detail.DetailActivity TAB_TITLES_FOLLOWS" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.utils.ExtensionsKt java.lang.String toShortNumber(java.lang.String $this$toShortNumber)" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.home.HomeViewModel user$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.favorite.ui.favorite.FavoriteFragment userAdapter" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.followers.FollowersFragment userAdapter" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.following.FollowingFragment userAdapter" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.home.HomeFragment userAdapter" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.followers.FollowersFragment username" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.following.FollowingFragment username" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.detail.DetailActivity viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.favorite.ui.favorite.FavoriteFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.followers.FollowersFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.follows.following.FollowingFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="com.yandey.githubapp.ui.home.HomeFragment viewModel$delegate" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.data.UserRepositoryImpl$-1 java.lang.Object createCall(kotlin.coroutines.Continuation&lt;? super kotlinx.coroutines.flow.Flow&lt;? extends com.yandey.core.data.source.remote.network.ApiResponse&lt;? extends java.util.List&lt;? extends com.yandey.core.data.source.remote.response.UserResponse&gt;&gt;&gt;&gt; $completion)" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.data.UserRepositoryImpl$-1 java.lang.Object createCall(kotlin.coroutines.Continuation&lt;? super kotlinx.coroutines.flow.Flow&lt;? extends com.yandey.core.data.source.remote.network.ApiResponse&lt;? extends com.yandey.core.data.source.remote.response.UserResponse&gt;&gt;&gt; $completion)" />
+      <entry_point TYPE="method" FQNAME="com.yandey.core.data.UserRepositoryImpl$-1 kotlinx.coroutines.flow.Flow&lt;com.yandey.core.domain.model.User&gt; loadFromNetwork(com.yandey.core.data.source.remote.response.UserResponse data)" />
+    </entry_points>
+    <pattern value="com.yandey.core.data.source.remote.network.ApiService" method="detail" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiService" method="follower" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiService" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiService" method="following" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiService" method="search" />
+    <pattern value="com.yandey.githubapp.di.AppModule" />
+    <pattern value="com.yandey.githubapp.di.AppModule" method="provideUserUseCase" />
+    <pattern value="com.yandey.core.utils.Constants" />
+    <pattern value="com.yandey.core.utils.DataMapper" />
+    <pattern value="com.yandey.core.utils.DataMapper" method="mapEntityToDomain" />
+    <pattern value="com.yandey.core.utils.DataMapper" method="mapListEntityToDomain" />
+    <pattern value="com.yandey.favorite.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.yandey.core.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.yandey.githubapp.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiResponse" />
+    <pattern value="com.yandey.core.ui.UserAdapter.UserViewHolder" method="bind" />
+    <pattern value="com.yandey.favorite.di.FavoriteComponent.Builder" />
+    <pattern value="com.yandey.core.data.NetworkResource" method="createCall" />
+    <pattern value="com.yandey.core.utils.DarkMode" />
+    <pattern value="com.yandey.core.utils.DarkMode" method="DarkMode" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" method="deleteUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="deleteUser" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" method="DetailViewModel" />
+    <pattern value="com.yandey.core.data.Resource.Error" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiResponse.Error" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiResponse.Error" method="Error" />
+    <pattern value="com.yandey.core.data.Resource.Error" method="Error" />
+    <pattern value="com.yandey.core.ExampleInstrumentedTest" />
+    <pattern value="com.yandey.favorite.ExampleInstrumentedTest" />
+    <pattern value="com.yandey.githubapp.ExampleInstrumentedTest" />
+    <pattern value="com.yandey.core.ExampleUnitTest" />
+    <pattern value="com.yandey.favorite.ExampleUnitTest" />
+    <pattern value="com.yandey.githubapp.ExampleUnitTest" />
+    <pattern value="com.yandey.favorite.di.FavoriteComponent" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteFragment" />
+    <pattern value="com.yandey.githubapp.di.FavoriteModule" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="favoriteStatus" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteViewModel" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersViewModel" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersViewModel" method="FollowersViewModel" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingViewModel" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingViewModel" method="FollowingViewModel" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="followsPager" />
+    <pattern value="com.yandey.githubapp.ui.follows.FollowsPagerAdapter" />
+    <pattern value="com.yandey.githubapp.ui.follows.FollowsPagerAdapter" method="FollowsPagerAdapter" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteFragment" method="getBinding" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="getBinding" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="getBinding" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="getBinding" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="getDetailUser" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" method="getDetailUser" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" method="getFavoriteStateUser" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" method="getFollowerUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="getFollowerUser" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" method="getFollowerUser" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" method="getFollowingUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="getFollowingUser" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" method="getFollowingUser" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" method="getSearchUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="getSearchUser" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" method="getSearchUser" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeViewModel" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeViewModel" method="HomeViewModel" />
+    <pattern value="com.yandey.core.di.LocalDataModule" />
+    <pattern value="com.yandey.githubapp.MainActivity" />
+    <pattern value="com.yandey.githubapp.MyApplication" />
+    <pattern value="com.yandey.core.data.NetworkResource" />
+    <pattern value="com.yandey.core.di.RemoteDataModule" />
+    <pattern value="com.yandey.core.di.RepositoryModule" />
+    <pattern value="com.yandey.githubapp.ui.settings.SettingsFragment" />
+    <pattern value="com.yandey.core.data.source.local.room.UserDatabase" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteFragment" method="initRecyclerView" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="initRecyclerView" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="initRecyclerView" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="initRecyclerView" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" method="insertUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" method="insertUser" />
+    <pattern value="com.yandey.githubapp.MainActivity" method="installSplashScreenWithAnim" />
+    <pattern value="com.yandey.core.ui.UserAdapter.ItemClickListener" />
+    <pattern value="com.yandey.core.data.source.remote.response.ListUserResponse" />
+    <pattern value="com.yandey.core.data.source.remote.response.ListUserResponse" method="ListUserResponse" />
+    <pattern value="com.yandey.core.data.NetworkResource" method="loadFromNetwork" />
+    <pattern value="com.yandey.core.data.Resource.Loading" />
+    <pattern value="com.yandey.core.data.Resource.Loading" method="Loading" />
+    <pattern value="com.yandey.core.data.source.local.LocalDataSource" />
+    <pattern value="com.yandey.core.data.source.local.LocalDataSource" method="LocalDataSource" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteFragment" method="observeFavorite" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="observeUser" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="observeUserDetail" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="observeUserFollower" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="observeUserFollowing" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="onClickFavorite" />
+    <pattern value="com.yandey.core.ui.UserAdapter.ItemClickListener" method="onItemClicked" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="openGithub" />
+    <pattern value="com.yandey.core.di.RemoteDataModule" method="provideApiService" />
+    <pattern value="com.yandey.core.di.LocalDataModule" method="provideDatabase" />
+    <pattern value="com.yandey.core.di.RepositoryModule" method="provideRepository" />
+    <pattern value="com.yandey.core.di.LocalDataModule" method="provideUserDao" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" />
+    <pattern value="com.yandey.core.data.source.remote.RemoteDataSource" method="RemoteDataSource" />
+    <pattern value="com.yandey.core.data.Resource" />
+    <pattern value="com.yandey.core.data.Resource" method="Resource" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeViewModel" method="searchUser" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="setDataUserDetail" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailViewModel" method="setDetailUser" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="setDrawableFavorite" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersViewModel" method="setFollowers" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingViewModel" method="setFollowing" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="setSearchView" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="shareGithub" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="showDefault" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="showEmpty" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="showEmpty" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="showEmpty" />
+    <pattern value="com.yandey.githubapp.ui.detail.DetailActivity" method="showLoading" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="showLoading" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="showLoading" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="showLoading" />
+    <pattern value="com.yandey.core.data.Resource.Success" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiResponse.Success" />
+    <pattern value="com.yandey.core.data.source.remote.network.ApiResponse.Success" method="Success" />
+    <pattern value="com.yandey.core.data.Resource.Success" method="Success" />
+    <pattern value="com.yandey.githubapp.ui.settings.SettingsFragment" method="updateTheme" />
+    <pattern value="com.yandey.favorite.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.yandey.core.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.yandey.githubapp.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.yandey.core.domain.model.User" />
+    <pattern value="com.yandey.core.domain.model.User" method="User" />
+    <pattern value="com.yandey.core.ui.UserAdapter" />
+    <pattern value="com.yandey.core.ui.UserAdapter" method="UserAdapter" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="UserInteractor" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" method="UserRepositoryImpl" />
+    <pattern value="com.yandey.core.data.source.remote.response.UserResponse" />
+    <pattern value="com.yandey.core.data.source.remote.response.UserResponse" method="UserResponse" />
+    <pattern value="com.yandey.core.domain.usecase.UserUseCase" />
+    <pattern value="com.yandey.githubapp.di.FavoriteModule" method="userUseCase" />
+    <pattern value="com.yandey.core.ui.UserAdapter.UserViewHolder" />
+    <pattern value="com.yandey.core.ui.UserAdapter.UserViewHolder" method="UserViewHolder" />
+    <pattern value="com.yandey.favorite.ViewModelFactory" />
+    <pattern value="com.yandey.favorite.ViewModelFactory" method="ViewModelFactory" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="deleteUser" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteViewModel" method="FavoriteViewModel" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="getDetailUser" />
+    <pattern value="com.yandey.core.data.UserRepositoryImpl" method="getDetailUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="getFollowerUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="getFollowingUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="getSearchUser" />
+    <pattern value="com.yandey.core.domain.usecase.UserInteractor" method="insertUser" />
+    <pattern value="com.yandey.favorite.ui.favorite.FavoriteFragment" method="onItemClicked" />
+    <pattern value="com.yandey.githubapp.ui.follows.followers.FollowersFragment" method="onItemClicked" />
+    <pattern value="com.yandey.githubapp.ui.follows.following.FollowingFragment" method="onItemClicked" />
+    <pattern value="com.yandey.githubapp.ui.home.HomeFragment" method="onItemClicked" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

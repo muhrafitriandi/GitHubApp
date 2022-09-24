@@ -8,6 +8,11 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
     compileSdk 33
 
     defaultConfig {
@@ -20,7 +25,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", BASE_URL)
             buildConfigField("String", "HOSTNAME", HOSTNAME)
@@ -30,6 +35,8 @@ android {
             buildConfigField("String", "SHA4", SHA4)
         }
         debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", BASE_URL)
             buildConfigField("String", "HOSTNAME", HOSTNAME)
             buildConfigField("String", "SHA1", SHA1)

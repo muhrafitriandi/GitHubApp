@@ -8,6 +8,11 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
     compileSdk 33
 
     defaultConfig {
@@ -22,7 +27,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

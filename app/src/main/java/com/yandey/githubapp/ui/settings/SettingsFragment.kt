@@ -7,6 +7,7 @@ import androidx.preference.PreferenceFragmentCompat
 import com.yandey.githubapp.R
 import com.yandey.core.utils.DarkMode
 
+@Suppress("SameReturnValue")
 class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
